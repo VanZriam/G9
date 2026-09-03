@@ -99,6 +99,24 @@
         font-weight: bold;
         color: #fdb927;
       }
+
+      .page-navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 30px 0;
+      }
+
+      .page-navigation a {
+        color: #fdb927;
+        text-decoration: none;
+      }
+
+      .page-navigation a:nth-child(2) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
     </style>
   </head>
 
@@ -336,10 +354,12 @@
           business, and communities.
         </li>
       </ul>
-
-      <a href="page2.html" target="_blank" style="float: left; margin: 30px">Prev. page</a>
-      <a href="index.html" target="_blank" float="center">Home</a>
-      <a href="page5.html" target="_blank" style="float: right; margin: 30px">Next Page</a>
+      
+      <div class="page-navigation">
+        <a href="page2.html" target="_blank">Prev. page</a>
+        <a href="index.html" target="_blank">Home</a>
+        <a href="page5.html" target="_blank">Next Page</a>
+      </div>
       
     </section>
   </body>
