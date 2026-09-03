@@ -189,6 +189,20 @@
     border-bottom: 2px solid #9f8460;
   }
 
+  .page-navigation {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    margin: 30px;
+  }
+
+ .home-link {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+ }
+
+ 
 </style>
 </head>
 
@@ -244,7 +258,9 @@
     </div>
   </section>
 
-  <a href="page4.html" target="_blank" style="float: left; margin: 30px">Prev. Page</a>
-  <a href="index.html" target="_blank" float="center">Home</a>
+  <div class="page-navigation">
+   <a href="page4.html" target="_blank">Prev. Page</a>
+   <a href="index.html" target="_blank" class="home-link">Home</a>
+  </div>
 </body>
 </html>
