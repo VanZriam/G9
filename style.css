@@ -422,6 +422,21 @@ table.table tr:nth-child(even) td {
   color: #444;
 }
 
+.page-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+}
+
+.page-navigation a {
+  text-decoration: none;
+}
+
+.page-navigation a:nth-child(2) {
+  margin: 0 auto;
+}
+
 .footer {
   background: var(--gray-bg);
   border-top: 3px solid var(--ocean-blue);
