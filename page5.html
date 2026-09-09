@@ -56,6 +56,14 @@
     border: 2px dotted #d8b878;
     border-radius: 50px;
   }
+  
+  footer {
+      border: 2px dotted #d8b878;
+      font-size: 15px;
+      text-align: center;
+      padding: 40px;
+      margin: 50px 0 0 0;
+  }
 
   .section-intro {
     text-align: center;
@@ -189,18 +197,35 @@
     border-bottom: 2px solid #9f8460;
   }
 
-  .page-navigation {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    margin: 30px;
-  }
+.page-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 0 25px;
+}
 
- .home-link {
-   position: absolute;
-   left: 50%;
-   transform: translateX(-50%);
- }
+.page-navigation a {
+  text-decoration: none;
+  color: #d8b878;
+  border: 2px solid #c9a96a;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #0b211c;
+  transition: all 0.3s ease;
+}
+
+.page-navigation a:hover {
+  background-color: #c9a96a;
+  color: #0b211c;
+}
+
+.home-link {
+  position: static;
+  transform: none;
+}
+
 
  
 </style>
@@ -258,9 +283,15 @@
     </div>
   </section>
 
-  <div class="page-navigation">
-   <a href="page4.html" target="_blank">Prev. Page</a>
-   <a href="index.html" target="_blank" class="home-link">Home</a>
-  </div>
+    <div class="page-navigation">
+        <a href="page4.html" target="_blank">←</a>
+        <a href="index.html" target="_blank">Home</a>
+        <a href="page6.html" target="_blank">→</a>
+    </div>
+    
+    <footer>
+        &copy; 2026. <br> 
+        Vanriam M. Cansilao
+    </footer>
 </body>
 </html>
