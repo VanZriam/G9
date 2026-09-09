@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Starry Night — Van Gogh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #0b1229;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlYB01gBJyUnCnAP3cjbhkcKzjgaukHUoOApnOi30NYqMGV23ZoYVku1M&s=10");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        font-family: 'Jost', sans-serif;
+        color: #f2e9d8;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .glass {
+        background: rgba(9, 15, 35, 0.55);
+        border: 1px solid rgba(244, 201, 93, 0.35);
+        border-radius: 6px;
+        backdrop-filter: blur(3px);
+      }
+
+      header.glass {
+        width: 100%;
+        margin: 0;
+        padding: 22px 48px;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      header .avatar {
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 2px solid rgba(244, 201, 93, 0.55);
+      }
+
+      header .profile-text {
+        text-align: left;
+      }
+
+      header .profile-text .name {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 600;
+        font-size: 26px;
+        color: #f4c95d;
+        letter-spacing: 0.5px;
+      }
+
+      header .profile-text .section {
+        margin-top: 4px;
+        font-weight: 300;
+        font-size: 14px;
+        color: #d8cdb4;
+      }
+
+      header .activity {
+        margin-left: auto;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 42px;
+        font-weight: 600;
+        color: #f4c95d;
+        letter-spacing: 1px;
+      }
+
+      .painting-title.glass {
+        max-width: 540px;
+        margin: 24px auto 0;
+        padding: 26px 35px;
+        text-align: center;
+      }
+
+      .painting-title h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 600;
+        font-size: 42px;
+        color: #f4c95d;
+        letter-spacing: 1px;
+      }
+
+      .painting-title p {
+        margin-top: 6px;
+        font-weight: 300;
+        font-size: 15px;
+        color: #d8cdb4;
+      }
+
+      main {
+        position: relative;
+        flex: 1;
+        max-width: 1100px;
+        width: 100%;
+        margin: 48px auto;
+        padding: 0 24px;
+      }
+
+      .card {
+        padding: 22px 26px;
+        max-width: 300px;
+        line-height: 1.55;
+        font-weight: 300;
+        font-size: 15px;
+      }
+
+      .card h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        font-weight: 600;
+        color: #f4c95d;
+        margin-bottom: 8px;
+      }
+
+      .card-scene {
+        margin-left: 2%;
+      }
+
+      .card-technique {
+        margin-left: auto;
+        margin-right: 4%;
+        margin-top: 64px;
+      }
+
+      .card-palette {
+        margin-left: 14%;
+        margin-top: 64px;
+      }
+
+      .card-history {
+        margin-left: auto;
+        margin-right: 16%;
+        margin-top: 64px;
+      }
+
+      .card-legacy {
+        margin-left: 6%;
+        margin-top: 64px;
+      }
+
+      nav.glass {
+        max-width: 640px;
+        margin: 0 auto 24px;
+        padding: 14px 29px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+      }
+
+      nav a {
+        color: #f2e9d8;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+      }
+
+      nav a:hover {
+        color: #f4c95d;
+      }
+
+      footer.glass {
+        width: 100%;
+        margin: 0;
+        padding: 18px 29px;
+        text-align: center;
+        font-weight: 300;
+        font-size: 13px;
+        color: #d8cdb4;
+        letter-spacing: 0.3px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="glass">
+      <img
+        class="avatar"
+        src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/740259761_122197913084444365_9112000994520503118_n.jpg?stp=dst-jpg_tt6&cstp=mx952x952&ctp=s952x952&_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEgnW7nSZT8EbzGnx7t4CK0DSR-zRNKT7YNJH7NE0pPtl_Zmlo0buNUsrO-13Oa2XoHXNKoGF01shMKCyRFen7M&_nc_ohc=m_kqGcwutpAQ7kNvwHYgriF&_nc_oc=AdorDjdDeN7IhkjacDRAOXkqvx-5vA5PX1AXjjpWEyvkNT9sMHR22SDP9aY_fIe6VtwzlRGKcWEeX-8kTLkMCNaT&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=BhmnhvjbMDa45SdUjQpMfw&_nc_ss=782a8&oh=00_AQLNuVcqK0IXNY8aDh3QF0AZZLCWfT6zWWutB-QKGiTR4Q&oe=6AA6F2D1"
+        alt="Vanriam M. Cansilao"
+      />
+
+      <div class="profile-text">
+        <div class="name">Vanriam M. Cansilao</div>
+        <div class="section">9-Galatians</div>
+      </div>
+
+      <div class="activity">Act. 2.3</div>
+    </header>
+
+    <div class="painting-title glass">
+      <h1>The Starry Night</h1>
+      <p>Vincent van Gogh &middot; oil on canvas &middot; 1889</p>
+    </div>
+
+    <main>
+      <div class="card glass card-scene">
+        <h2>The Scene</h2>
+        <p>
+          Painted from memory at the asylum in Saint-Rémy, the view looks out
+          over a sleeping village toward rolling hills and a swirling sky, with
+          an imagined cypress standing watch in the foreground.
+        </p>
+      </div>
+
+      <div class="card glass card-technique">
+        <h2>The Technique</h2>
+        <p>
+          Thick, rhythmic strokes of paint build the sky into motion. The
+          turbulence of the brushwork contrasts with the stillness of the
+          village below it.
+        </p>
+      </div>
+
+      <div class="card glass card-palette">
+        <h2>The Palette</h2>
+        <p>
+          Cool blues and greens dominate the canvas, broken by bursts of warm
+          yellow in the stars and moon. The contrast gives the sky its glow and
+          its restlessness.
+        </p>
+      </div>
+
+      <div class="card glass card-history">
+        <h2>Where It Was Made</h2>
+        <p>
+          Van Gogh painted it in June 1889 while a patient at the
+          Saint-Paul-de-Mausole asylum, working from the view outside his window
+          before sunrise.
+        </p>
+      </div>
+
+      <div class="card glass card-legacy">
+        <h2>Why It Endures</h2>
+        <p>
+          More than a century later, its restless sky still feels like a
+          private, sleepless thought turned into color and light, and it remains
+          one of the most recognized paintings in the world.
+        </p>
+      </div>
+    </main>
+
+    <nav class="glass">
+      <a href="page5.html">&#8592; Prev. Page</a>
+      <a href="index.html">Home</a>
+      <a href="page7.html">Next Page &#8594;</a>
+    </nav>
+
+    <footer class="glass">
+      &copy; 2026 Vanriam M. Cansilao. All rights reserved.
+    </footer>
+  </body>
+</html>
