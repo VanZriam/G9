@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Game of Basketball</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+
+      :root{
+        --purple: #552583;
+        --purple-dark: #2c1150;
+        --gold: #FDB927;
+        --gold-dim: #c9930f;
+        --cream: #f6efe1;
+      }
+
+      *{ box-sizing: border-box; }
+
+      body{
+        margin:0;
+        font-family: 'Barlow', sans-serif;
+        color: var(--cream);
+        background: var(--purple-dark);
+        line-height: 1.6;
+      }
+
+      a{ color: inherit; }
+
+      .display{
+        font-family:'Anton', sans-serif;
+        letter-spacing: 0.32px;
+      }
+
+      header{
+        display: grid;
+        grid-template-columns: 1fr minmax(0,3fr) 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 22px clamp(18px, 5vw, 48px);
+        background: var(--purple);
+        border-bottom: 5px solid var(--gold);
+      }
+
+      .activity-tag{
+        justify-self: start;
+        font-family:'Anton', sans-serif;
+        font-size: 15.2px;
+        color: var(--purple-dark);
+        background: var(--gold);
+        padding: 6px 12px;
+        border-radius: 4px;
+      }
+
+      .title-center{ text-align:center; }
+
+      .title-center h1{
+        margin:0;
+        font-size: clamp(24px, 4vw, 41.6px);
+      }
+
+      .title-center h1 span{ color: var(--gold); }
+
+      .title-center p{
+        margin: 4px 0 0;
+        font-size: 12.48px;
+        letter-spacing: 3.2px;
+        text-transform: uppercase;
+        color: rgba(246,239,225,0.7);
+      }
+
+      .id-right{
+        justify-self: end;
+        text-align:right;
+        font-size: 13.6px;
+      }
+
+      .id-right .name{
+        display:block;
+        font-weight:700;
+        color: var(--gold);
+      }
+
+      .id-right .section{
+        display:block;
+        color: rgba(246,239,225,0.7);
+      }
+
+      main{
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px 10px;
+      }
+
+      .intro{
+        text-align:center;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        color: rgba(246,239,225,0.8);
+      }
+
+      .row{
+        display:flex;
+        gap: 26px;
+        align-items:flex-start;
+      }
+
+      .row.reverse{ flex-direction: row-reverse; }
+
+      .row h2{
+        font-family:'Anton', sans-serif;
+        margin: 0 0 8px;
+        color: var(--gold);
+        font-size: 24px;
+      }
+
+      .row p{
+        margin:0;
+        color: rgba(246,239,225,0.9);
+      }
+
+      .icon{ flex-shrink:0; }
+
+      .ball{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: #e8600c;
+        position: relative;
+      }
+
+      .ball::before,
+      .ball::after{
+        content:'';
+        position:absolute;
+        background:#2a1206;
+      }
+
+      .ball::before{
+        top:0;
+        left:50%;
+        width:2px;
+        height:100%;
+        transform:translateX(-50%);
+      }
+
+      .ball::after{
+        top:50%;
+        left:0;
+        width:100%;
+        height:2px;
+        transform:translateY(-50%);
+      }
+
+      .hoop{
+        width: 90px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .rim{
+        width: 80px;
+        height: 16px;
+        border-radius: 50%;
+        background: #e8600c;
+      }
+
+      .net{
+        width: 0;
+        height: 0;
+        border-left: 34px solid transparent;
+        border-right: 34px solid transparent;
+        border-top: 50px solid rgba(246,239,225,0.55);
+        clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%);
+      }
+
+      .num{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: var(--purple-dark);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-family:'Anton', sans-serif;
+        font-size: 35.2px;
+      }
+
+      #origins{ margin: 0 0 50px; }
+
+      #origins .card{
+        border: 2px solid var(--gold);
+        padding: 18px 22px;
+        border-radius: 6px;
+      }
+
+      #rise{ margin: 0 0 50px; }
+
+      #rise .card{
+        border: 4px dashed var(--gold-dim);
+        padding: 34px 26px;
+        border-radius: 6px;
+      }
+
+      #modern{ margin: 0 0 20px; }
+
+      #modern .card{
+        border: 5px double var(--gold);
+        padding: 20px 24px;
+        background: rgba(85,37,131,0.4);
+        border-radius: 6px;
+      }
+
+      .card{ flex: 1; }
+
+      nav{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap: 20px;
+        padding: 20px 16px 40px;
+      }
+
+      .nav-btn{
+        text-decoration:none;
+        font-family:'Anton', sans-serif;
+        color: var(--purple-dark);
+        background: var(--gold);
+        padding: 10px 16px;
+        border-radius: 20px;
+      }
+
+      .nav-btn.arrow{
+        width: 42px;
+        height: 42px;
+        padding:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius: 50%;
+        font-size: 19.2px;
+      }
+
+      footer{
+        text-align:center;
+        padding: 16px;
+        border-top: 3px solid var(--gold);
+        background: var(--purple-dark);
+        font-size: 12.8px;
+        color: rgba(246,239,225,0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="activity-tag">Act. 2.4</span>
+
+      <div class="title-center">
+        <h1 class="display">THE GAME OF <span>BASKETBALL</span></h1>
+        <p>History &middot; Significance &middot; Modern Impact</p>
+      </div>
+
+      <div class="id-right">
+        <span class="name">Vanriam M. Cansilao</span>
+        <span class="section">9 &ndash; Galatians</span>
+      </div>
+    </header>
+
+    <main>
+      <p class="intro">
+        From a peach basket nailed to a gym wall to arenas watched by billions,
+        basketball has grown into one of the most influential games on earth.
+      </p>
+
+      <section id="origins" class="row">
+        <div class="icon"><div class="ball" aria-hidden="true"></div></div>
+        <div class="card">
+          <h2 class="display">Where It All Began</h2>
+          <p>
+            Basketball was invented in December 1891 by Dr. James Naismith, who
+            nailed two peach baskets to a gym balcony and wrote thirteen simple
+            rules to keep his students active in winter. Backboards, nets, and
+            dribbling were added soon after, and the game spread through YMCAs
+            and colleges into the earliest professional leagues.
+          </p>
+        </div>
+      </section>
+
+      <section id="rise" class="row reverse">
+        <div class="icon hoop" aria-hidden="true">
+          <div class="rim"></div>
+          <div class="net"></div>
+        </div>
+        <div class="card">
+          <h2 class="display">A Global Rise</h2>
+          <p>
+            All basketball needs is a ball and a hoop, which is why it spread so
+            fast. It became an Olympic sport in 1936, the NBA was founded in
+            1946, and the 1992 "Dream Team" introduced the world to NBA stars on
+            live TV. The WNBA followed in 1996. Today the game is played on
+            courts everywhere, from city parks to backyard hoops.
+          </p>
+        </div>
+      </section>
+
+      <section id="modern" class="row">
+        <div class="icon"><div class="num" aria-hidden="true">24</div></div>
+        <div class="card">
+          <h2 class="display">The Modern Era</h2>
+          <p>
+            Basketball today is a global culture as much as a sport, streamed to
+            millions, shaped by analytics, and tied to fashion and music.
+            Franchises like the Lakers, home to Magic Johnson, Kobe Bryant, and
+            LeBron James, show how the game keeps evolving while still teaching
+            the same lessons: discipline, teamwork, and showing up for the
+            people beside you.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <nav aria-label="Page navigation">
+      <a href="page6.html" class="nav-btn arrow" aria-label="Previous page"
+        >&larr;</a
+      >
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="page9.html" class="nav-btn arrow" aria-label="Next page"
+        >&rarr;</a
+      >
+    </nav>
+
+    <footer>&copy; 2026 Vanriam M. Cansilao. All rights reserved.</footer>
+  </body>
+</html>
