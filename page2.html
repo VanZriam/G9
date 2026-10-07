@@ -1,199 +1,213 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Nutrition Month</title>
-        <style>
-            /* Header and footer share one palette so they frame the page as a matched pair */
-            .page-header,
-            .page-footer {
-                background: linear-gradient(135deg, #14532d 0%, #1b5e20 55%, #2e7d32 100%);
-                color: #e8f5e9;
-                font-family: Georgia, "Times New Roman", serif;
-                border-radius: 15px;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nutrition Month</title>
 
+    <style>
+        .page-header,
+        .page-footer {
+            background: linear-gradient(135deg, #14532d 0%, #1b5e20 55%, #2e7d32 100%);
+            color: #e8f5e9;
+            font-family: Georgia, "Times New Roman", serif;
+            border-radius: 15px;
+        }
+
+        .page-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 28px;
+            margin-bottom: 12px;
+            border-bottom: 4px solid #ffd54f;
+        }
+
+        .page-header .act {
+            justify-self: start;
+            font-size: 18px;
+            font-weight: bold;
+            color: #14532d;
+            background: #c5e1a5;
+            padding: 6px 16px;
+            border-radius: 20px;
+        }
+
+        .page-header .page-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .page-header .student {
+            justify-self: end;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        .page-header .student .name {
+            font-size: 17px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .page-header .student .section {
+            font-size: 15px;
+            color: #c5e1a5;
+            border-top: 1px solid #81c784;
+            margin-top: 3px;
+            padding-top: 3px;
+        }
+
+        .page-footer {
+            clear: both;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px 30px;
+            padding: 20px 28px;
+            margin-top: 20px;
+            border-top: 4px solid #ffd54f;
+        }
+
+        .page-footer .focus {
+            flex: 2;
+            min-width: 260px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #e8f5e9;
+        }
+
+        .page-footer .focus strong {
+            color: #ffd54f;
+        }
+
+        .page-footer .copyright {
+            flex: 1;
+            min-width: 200px;
+            text-align: right;
+            font-size: 14px;
+            color: #c5e1a5;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+            border: 3px solid transparent;
+            box-shadow: 0 4px 0 rgba(20, 83, 45, 0.45);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 0 rgba(20, 83, 45, 0.45);
+            filter: brightness(1.08);
+        }
+
+        .nav-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 rgba(20, 83, 45, 0.45);
+        }
+
+        .nav-btn:focus-visible {
+            outline: 3px solid #14532d;
+            outline-offset: 3px;
+        }
+
+        .nav-home {
+            background: linear-gradient(135deg, #ffd54f, #ffb300);
+            color: #14532d;
+            border-color: #fff8e1;
+        }
+
+        .nav-next {
+            background: linear-gradient(135deg, #66bb6a, #2e7d32);
+            color: #ffffff;
+            border-color: #c5e1a5;
+        }
+
+        @media (max-width: 700px) {
             .page-header {
-                display: grid;
-                grid-template-columns: 1fr 2fr 1fr;
-                align-items: center;
-                gap: 15px;
-                padding: 18px 28px;
-                margin-bottom: 12px;
-                border-bottom: 4px solid #ffd54f;
-            }
-
-            .page-header .act {
-                justify-self: start;
-                font-size: 18px;
-                font-weight: bold;
-                color: #14532d;
-                background: #c5e1a5;
-                padding: 6px 16px;
-                border-radius: 20px;
-            }
-
-            .page-header .page-title {
+                grid-template-columns: 1fr;
                 text-align: center;
-                font-size: 28px;
-                font-weight: bold;
-                color: #ffffff;
-                letter-spacing: 1px;
             }
 
+            .page-header .act,
             .page-header .student {
-                justify-self: end;
-                text-align: right;
-                line-height: 1.4;
-            }
-
-            .page-header .student .name {
-                font-size: 17px;
-                font-weight: bold;
-                color: #ffffff;
-            }
-
-            .page-header .student .section {
-                font-size: 15px;
-                color: #c5e1a5;
-                border-top: 1px solid #81c784;
-                margin-top: 3px;
-                padding-top: 3px;
-            }
-
-            .page-footer {
-                clear: both;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 10px 30px;
-                padding: 20px 28px;
-                margin-top: 20px;
-                border-top: 4px solid #ffd54f;
-            }
-
-            .page-footer .focus {
-                flex: 2;
-                min-width: 260px;
-                font-size: 15px;
-                line-height: 1.6;
-                color: #e8f5e9;
-            }
-
-            .page-footer .focus strong {
-                color: #ffd54f;
+                justify-self: center;
+                text-align: center;
             }
 
             .page-footer .copyright {
-                flex: 1;
-                min-width: 200px;
-                text-align: right;
-                font-size: 14px;
-                color: #c5e1a5;
+                text-align: left;
             }
+        }
+    </style>
+</head>
 
-            /* Navigation buttons */
-            .nav-btn {
-                display: inline-block;
-                padding: 14px 32px;
-                border-radius: 50px;
-                font-family: Georgia, "Times New Roman", serif;
-                font-size: 17px;
-                font-weight: bold;
-                text-decoration: none;
-                border: 3px solid transparent;
-                box-shadow: 0 4px 0 rgba(20, 83, 45, 0.45);
-                transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
-            }
-
-            .nav-btn:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 7px 0 rgba(20, 83, 45, 0.45);
-                filter: brightness(1.08);
-            }
-
-            .nav-btn:active {
-                transform: translateY(2px);
-                box-shadow: 0 1px 0 rgba(20, 83, 45, 0.45);
-            }
-
-            .nav-btn:focus-visible {
-                outline: 3px solid #14532d;
-                outline-offset: 3px;
-            }
-
-            .nav-home {
-                background: linear-gradient(135deg, #ffd54f, #ffb300);
-                color: #14532d;
-                border-color: #fff8e1;
-            }
-
-            .nav-next {
-                background: linear-gradient(135deg, #66bb6a, #2e7d32);
-                color: #ffffff;
-                border-color: #c5e1a5;
-            }
-
-            @media (max-width: 700px) {
-                .page-header {
-                    grid-template-columns: 1fr;
-                    text-align: center;
-                }
-                .page-header .act,
-                .page-header .student {
-                    justify-self: center;
-                    text-align: center;
-                }
-                .page-footer .copyright {
-                    text-align: left;
-                }
-            }
-        </style>
-    </head>
-    <body>
+<body>
 
     <header class="page-header">
         <div class="act">Act 1.2</div>
-        <div class="page-title">🥗 Nutrition Month 🍏</div>
+
+        <div class="page-title">
+            🥗 Nutrition Month 🍏
+        </div>
+
         <div class="student">
             <div class="name">Vanriam M. Cansilao</div>
             <div class="section">9-Galatians</div>
         </div>
     </header>
 
-    <h1 style="background-color: green; color: white; text-align: center; padding: 40px; border-radius: 15px; margin: 0; font-size: 50px;">🥗 Nutrition Month 🍏</h1>
+    <h1 style="background-color: green; color: white; text-align: center; padding: 40px; border-radius: 15px; margin: 0; font-size: 50px;">
+        🥗 Nutrition Month 🍏
+    </h1>
 
     <section style="text-align: center; margin-bottom: 60px;">
-            <h2 style="color: green;">Welcome to Nutrition Month!</h2>
-            <p style="color: grey; font-size: 18px;">
-                Learn about healthy eating through proper nutrition
-            </p>
-        
-        <img 
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd1lCpYx0U2IIB8cZJLHJ0G0Z8nrzIJ7K50KHp6tFjqIvTlE0dBeVELU4&s=10" 
+        <h2 style="color: green;">Welcome to Nutrition Month!</h2>
+
+        <p style="color: grey; font-size: 18px;">
+            Learn about healthy eating through proper nutrition
+        </p>
+
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd1lCpYx0U2IIB8cZJLHJ0G0Z8nrzIJ7K50KHp6tFjqIvTlE0dBeVELU4&s=10"
             alt="Bowl of fresh fruits and vegetables"
-            width="750" 
+            width="750"
             height="500"
-            style="border-radius: 15px;">
+            style="border-radius: 15px;"
+        >
     </section>
 
-
     <section style="background: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
-        <h2 style="color: green; border-bottom: 3px solid green; padding-bottom: 15px;">What is Nutrition Month?</h2>
-        
+        <h2 style="color: green; border-bottom: 3px solid green; padding-bottom: 15px;">
+            What is Nutrition Month?
+        </h2>
+
         <div style="display: flex; gap: 30px; align-items: center;">
-            <img 
-                src="https://cdn.aarp.net/content/dam/aarp/health/healthy-living/2023/07/1140-colorfulrawveggies.jpg" 
+            <img
+                src="https://cdn.aarp.net/content/dam/aarp/health/healthy-living/2023/07/1140-colorfulrawveggies.jpg"
                 alt="Person preparing healthy meal"
-                width="400" 
+                width="400"
                 height="400"
                 style="border-radius: 15px; flex: 1;"
             >
-            
+
             <div style="flex: 1;">
-                <p style="line-height: 1.8;"><mark>Nutrition Month</mark> is an annual campaign that promotes:</p>
+                <p style="line-height: 1.8;">
+                    <mark>Nutrition Month</mark> is an annual campaign that promotes:
+                </p>
+
                 <ul style="line-height: 2;">
                     <li>Awareness about healthy eating</li>
                     <li>Balanced diet education</li>
@@ -205,164 +219,257 @@
     </section>
 
     <section style="background: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
-        <h2 style="color: green; border-bottom: 2px solid green; padding-bottom: 15px;">Essential Food Groups</h2>
+        <h2 style="color: green; border-bottom: 2px solid green; padding-bottom: 15px;">
+            Essential Food Groups
+        </h2>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
 
             <div style="text-align: center; padding: 15px;">
-                <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUVFnsv5iIL9W87n9BrHo_ucBgRYzcBC8mW45JzgdGug&s=10" 
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUVFnsv5iIL9W87n9BrHo_ucBgRYzcBC8mW45JzgdGug&s=10"
                     alt="Fresh fruits"
-                    width="300" 
+                    width="300"
                     height="200"
                     style="border-radius: 10px;"
                 >
-                <h3 style="color: green; margin-top: 10px;">🍎 Fruits</h3>
-                <p style="color: grey; font-size: 15px;">Vitamins & fiber</p>
+
+                <h3 style="color: green; margin-top: 10px;">
+                    🍎 Fruits
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Vitamins & fiber
+                </p>
             </div>
 
             <div style="text-align: center; padding: 15px;">
-                <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKMv4my6jiEQBHz0z4VlFojtErKfE9h-XC04WSxp9aFA&s=10" 
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKMv4my6jiEQBHz0z4VlFojtErKfE9h-XC04WSxp9aFA&s=10"
                     alt="Fresh vegetables"
-                    width="300" 
+                    width="300"
                     height="200"
                     style="border-radius: 10px;"
                 >
-                <h3 style="color: green; margin-top: 10px;">🥬 Vegetables</h3>
-                <p style="color: grey; font-size: 15px;">Nutrients & minerals</p>
+
+                <h3 style="color: green; margin-top: 10px;">
+                    🥬 Vegetables
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Nutrients & minerals
+                </p>
             </div>
 
             <div style="text-align: center; padding: 15px;">
-                <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT8QSARMlrp_4Yjzd5lWcC2qUsZCQCeS4F6lUv7jb6pg&s=10" 
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT8QSARMlrp_4Yjzd5lWcC2qUsZCQCeS4F6lUv7jb6pg&s=10"
                     alt="Grains"
-                    width="300" 
+                    width="300"
                     height="200"
                     style="border-radius: 10px;"
                 >
-                <h3 style="color: green; margin-top: 10px;">🌾 Grains</h3>
-                <p style="color: grey; font-size: 15px;">Energy & fiber</p>
+
+                <h3 style="color: green; margin-top: 10px;">
+                    🌾 Grains
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Energy & fiber
+                </p>
             </div>
 
             <div style="text-align: center; padding: 15px;">
-                <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVVhUXLXgLWe0IrCpCRPhhN__i_Glcru4I5VjTLInKtg&s=10" 
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVVhUXLXgLWe0IrCpCRPhhN__i_Glcru4I5VjTLInKtg&s=10"
                     alt="Protein sources"
-                    width="300" 
+                    width="300"
                     height="200"
                     style="border-radius: 10px;"
                 >
-                <h3 style="color: green; margin-top: 10px;">🥩 Proteins</h3>
-                <p style="color: grey; font-size: 15px;">Muscle growth</p>
+
+                <h3 style="color: green; margin-top: 10px;">
+                    🥩 Proteins
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Muscle growth
+                </p>
             </div>
 
             <div style="text-align: center; padding: 15px;">
-                <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxSxCutCC0MW1RD6awC6vMevfnOhZqzafflg4xyayrQ&s=10" 
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxSxCutCC0MW1RD6awC6vMevfnOhZqzafflg4xyayrQ&s=10"
                     alt="Dairy products"
-                    width="300" 
+                    width="300"
                     height="200"
                     style="border-radius: 10px;"
                 >
-                <h3 style="color: green; margin-top: 10px;">🥛 Dairy</h3>
-                <p style="color: grey; font-size: 15px;">Calcium for bones</p>
+
+                <h3 style="color: green; margin-top: 10px;">
+                    🥛 Dairy
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Calcium for bones
+                </p>
             </div>
 
             <div style="text-align: center; padding: 15px;">
-                <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZ1pKZAYHy6Nh5owU6WGj26sUHR1uhyxlSliklsTDag&s=10" 
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZ1pKZAYHy6Nh5owU6WGj26sUHR1uhyxlSliklsTDag&s=10"
                     alt="Healthy fats"
-                    width="300" 
+                    width="300"
                     height="200"
                     style="border-radius: 5px;"
                 >
-                <h3 style="color: green; margin-top: 10px;">🥑 Healthy Fats</h3>
-                <p style="color: grey; font-size: 15px;">Brain function</p>
+
+                <h3 style="color: green; margin-top: 10px;">
+                    🥑 Healthy Fats
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Brain function
+                </p>
             </div>
+
         </div>
     </section>
 
     <section style="background: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
-        <h2 style="color: green; border-bottom: 2px solid green; padding-bottom: 10px;">Quick Tips for Healthy Eating</h2>
-        
+        <h2 style="color: green; border-bottom: 2px solid green; padding-bottom: 10px;">
+            Quick Tips for Healthy Eating
+        </h2>
+
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
-            
+
             <div style="background: #e8f5e9; padding: 20px; text-align: center; border-radius: 8px;">
-                <img 
-                    src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=120&h=120&fit=crop" 
+                <img
+                    src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=120&h=120&fit=crop"
                     alt="Beverages"
-                    width="120" 
+                    width="120"
                     height="120"
                     style="border-radius: 50%; margin-bottom: 10px;"
                 >
-                <h3 style="color: green;">💧 Stay Hydrated</h3>
-                <p style="color: grey; font-size: 15px;">Drink 8 glasses daily</p>
+
+                <h3 style="color: green;">
+                    💧 Stay Hydrated
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Drink 8 glasses daily
+                </p>
             </div>
 
             <div style="background: #e8f5e9; padding: 20px; text-align: center; border-radius: 8px;">
-                <img 
-                    src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=120&h=120&fit=crop" 
+                <img
+                    src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=120&h=120&fit=crop"
                     alt="Balanced plate of food"
-                    width="120" 
+                    width="120"
                     height="120"
                     style="border-radius: 50%; margin-bottom: 10px;"
                 >
-                <h3 style="color: green;">🍽️ Portion Control</h3>
-                <p style="color: grey; font-size: 15px;">Use smaller plates</p>
+
+                <h3 style="color: green;">
+                    🍽️ Portion Control
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Use smaller plates
+                </p>
             </div>
 
             <div style="background: #e8f5e9; padding: 20px; text-align: center; border-radius: 8px;">
-                <img 
-                    src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=120&h=120&fit=crop" 
+                <img
+                    src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=120&h=120&fit=crop"
                     alt="Meal planning calendar"
-                    width="120" 
+                    width="120"
                     height="120"
                     style="border-radius: 50%; margin-bottom: 10px;"
                 >
-                <h3 style="color: green;">📅 Plan Ahead</h3>
-                <p style="color: grey; font-size: 15px;">Prepare meals in advance</p>
+
+                <h3 style="color: green;">
+                    📅 Plan Ahead
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Prepare meals in advance
+                </p>
             </div>
 
             <div style="background: #e8f5e9; padding: 20px; text-align: center; border-radius: 8px;">
-                <img 
-                    src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=120&h=120&fit=crop" 
+                <img
+                    src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=120&h=120&fit=crop"
                     alt="Nutrition label on food"
-                    width="120" 
+                    width="120"
                     height="120"
                     style="border-radius: 50%; margin-bottom: 10px;"
                 >
-                <h3 style="color: green;">🏷️ Read Labels</h3>
-                <p style="color: grey; font-size: 15px;">Check ingredients carefully</p>
+
+                <h3 style="color: green;">
+                    🏷️ Read Labels
+                </h3>
+
+                <p style="color: grey; font-size: 15px;">
+                    Check ingredients carefully
+                </p>
             </div>
+
         </div>
     </section>
 
     <section style="background: green; color: white; padding: 40px; border-radius: 30px; text-align: center; margin-bottom: 30px;">
-        <h2 style="color: white; margin-bottom: 15px;">Start Your Healthy Journey Today! 🌟</h2>
-        <p style="font-size: 19px; margin-bottom: 25px;">Make nutritious choices for a better life</p>
-        
-        <img 
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLbaxNnFZgH2yQ8pDhSf89f7ID1Vr-owapEbIwDvIGGg&s=10" 
+        <h2 style="color: white; margin-bottom: 15px;">
+            Start Your Healthy Journey Today! 🌟
+        </h2>
+
+        <p style="font-size: 19px; margin-bottom: 25px;">
+            Make nutritious choices for a better life
+        </p>
+
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLbaxNnFZgH2yQ8pDhSf89f7ID1Vr-owapEbIwDvIGGg&s=10"
             alt="Nutrition Month"
-            width="700" 
+            width="700"
             height="400"
             style="border-radius: 10px; border: 3px solid white;"
         >
-        <p style="margin-top: 15px;"><i>A balanced breakfast starts your day right!</i></p>
+
+        <p style="margin-top: 15px;">
+            <i>A balanced breakfast starts your day right!</i>
+        </p>
     </section>
 
-    <a href="page3.html" target="_blank" class="nav-btn nav-next" style="float: right; margin: 30px">Next Page ➡️</a>
-    <a href="index.html" target="_blank" class="nav-btn nav-home" style="float: left; margin: 30px">🏠 Home</a>
+    <a
+        href="page3.html"
+        target="_blank"
+        class="nav-btn nav-next"
+        style="float: right; margin: 30px;"
+    >
+        Next Page ➡️
+    </a>
+
+    <a
+        href="index.html"
+        target="_blank"
+        class="nav-btn nav-home"
+        style="float: left; margin: 30px;"
+    >
+        🏠 Home
+    </a>
 
     <footer class="page-footer">
         <div class="focus">
-            <strong>Page focus:</strong> An introduction to Nutrition Month, the six essential food groups, and simple tips for building healthy eating habits.
+            <strong>Page focus:</strong>
+            An introduction to Nutrition Month, the six essential food groups,
+            and simple tips for building healthy eating habits.
         </div>
+
         <div class="copyright">
-            &copy; 2026 Vanriam M. Cansilao.<br>All rights reserved.
+            &copy; 2026 Vanriam M. Cansilao.<br>
+            All rights reserved.
         </div>
     </footer>
-        
+
 </body>
 </html>
