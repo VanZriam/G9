@@ -42,6 +42,26 @@ body {
   text-align: center;
   color: var(--cream);
   background-color: #6a6761;
+  /* Spray-can cursor (SVG). Hotspot = the nozzle tip. */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect x='14' y='15' width='17' height='22' rx='3' fill='%23d62828' stroke='%23000' stroke-width='2'/%3E%3Crect x='16' y='9' width='13' height='6' fill='%23ddd' stroke='%23000' stroke-width='2'/%3E%3Crect x='8' y='10' width='8' height='3' fill='%23000'/%3E%3Crect x='14' y='22' width='17' height='6' fill='%23ffb703'/%3E%3C/svg%3E") 8 11, crosshair;
+}
+
+/* ---------- THE WALL (performance fix) ----------
+   The wall used to be painted on body with background-attachment: fixed,
+   which makes the browser repaint every layer while scrolling (lag).
+   Now it is a fixed layer behind the page that the browser keeps on the
+   graphics card, so scrolling stays smooth. */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);
   background-image:
     radial-gradient(circle at 12% 18%, rgba(247, 127, 0, 0.28), transparent 28%),
     radial-gradient(circle at 88% 62%, rgba(214, 40, 40, 0.26), transparent 30%),
@@ -57,12 +77,10 @@ body {
     repeating-linear-gradient(0deg, transparent 0 276px, rgba(0, 0, 0, 0.4) 276px 280px),
     repeating-linear-gradient(90deg, transparent 0 456px, rgba(0, 0, 0, 0.3) 456px 459px),
     linear-gradient(#7d7a74, #55524d);
-  background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, scroll, scroll, scroll, scroll, scroll;
   background-size: auto, auto, auto, auto, auto, cover, auto, auto, auto, auto, auto;
   background-position: center;
-  /* Spray-can cursor (SVG). Hotspot = the nozzle tip. */
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect x='14' y='15' width='17' height='22' rx='3' fill='%23d62828' stroke='%23000' stroke-width='2'/%3E%3Crect x='16' y='9' width='13' height='6' fill='%23ddd' stroke='%23000' stroke-width='2'/%3E%3Crect x='8' y='10' width='8' height='3' fill='%23000'/%3E%3Crect x='14' y='22' width='17' height='6' fill='%23ffb703'/%3E%3C/svg%3E") 8 11, crosshair;
 }
+
 
 /* Holding the mouse down = the can is spraying (paint dots appear) */
 body:active,
@@ -647,8 +665,8 @@ details p {
 }
 
 @keyframes paint-in {
-  from { opacity: 0; filter: blur(8px); transform: translateY(40px) scale(0.97); }
-  to   { opacity: 1; filter: blur(0); transform: none; }
+  from { opacity: 0; transform: translateY(40px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* ---------- Mobile ---------- */
