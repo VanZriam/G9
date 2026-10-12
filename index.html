@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Student Information | Vanriam's Wall</title>
 
-    <!-- Graffiti fonts (Google Fonts). Needs an internet connection. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,12 +12,10 @@
       rel="stylesheet"
     />
 
-    <!-- CSS TYPE 1: EXTERNAL CSS (style.css must be in the same folder as this file) -->
     <link rel="stylesheet" href="index.css" />
 
-    <!-- CSS TYPE 2: INTERNAL CSS (header banner + footer live here) -->
     <style>
-      /* ===== HEADER BANNER ===== */
+
       .banner {
         position: relative;
         z-index: 2;
@@ -30,7 +27,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       }
 
-      /* Paint dripping off the bottom of the banner */
       .banner::after {
         content: "";
         position: absolute;
@@ -45,13 +41,12 @@
           linear-gradient(90deg, var(--yellow) 4px, transparent 4px) 41px 0 / 37px 15px repeat-x;
       }
 
-      /* Scrolling strip at the very top (pure CSS animation) */
       .ticker {
         overflow: hidden;
         padding: 6px 0;
         white-space: nowrap;
         font-family: "Permanent Marker", cursive;
-        font-size: 1.1rem;
+        font-size: 17.6px;
         letter-spacing: 2px;
         color: var(--yellow);
         background-color: #000;
@@ -60,7 +55,7 @@
 
       .ticker span {
         display: inline-block;
-        animation: ticker 28s linear infinite;
+        animation: ticker 12s linear infinite;
       }
 
       .ticker:hover span {
@@ -71,12 +66,11 @@
         to { transform: translateX(-50%); }
       }
 
-      /* ID selector: the big spray-painted title. It "sprays" in once on page load. */
       #site-title {
         margin: 44px 0 10px;
         font-family: "Rubik Spray Paint", Impact, sans-serif;
         font-weight: 400;
-        font-size: clamp(3.2rem, 13vw, 8.5rem);
+        font-size: clamp(51.2px, 13vw, 136px);
         line-height: 1;
         letter-spacing: 4px;
         color: var(--yellow);
@@ -95,14 +89,13 @@
 
       .tagline {
         margin: 18px 0 0;
-        font-size: 1.5rem;
+        font-size: 24px;
         font-weight: 700;
         letter-spacing: 3px;
         color: var(--cream);
         text-shadow: 2px 2px 0 #000;
       }
 
-      /* ===== FOOTER ===== */
       .site-footer {
         position: relative;
         z-index: 1;
@@ -121,7 +114,7 @@
       .footer-tag {
         margin: 0 0 14px;
         font-family: "Rubik Spray Paint", Impact, sans-serif;
-        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-size: clamp(28.8px, 5vw, 48px);
         color: var(--orange);
         text-shadow: 3px 3px 0 var(--red);
       }
@@ -150,14 +143,13 @@
 
       .site-footer small {
         display: block;
-        font-size: 1.05rem;
+        font-size: 16.8px;
         color: #c9c0b0;
       }
     </style>
   </head>
 
   <body>
-    <!-- ================= HEADER BANNER ================= -->
     <header class="banner" id="top">
       <div class="ticker" aria-hidden="true">
         <span>
@@ -168,9 +160,8 @@
 
       <h1 id="site-title">Vanriam's Wall</h1>
 
-      <!-- CSS TYPE 3: INLINE CSS (style="" written right on the element) -->
       <p
-        style="display: inline-block; margin: 8px 0 0; padding: 6px 22px; font-family: 'Permanent Marker', cursive; font-size: 1.6rem; color: #000; background-color: #f3e9d2; border: 4px solid #000; box-shadow: 5px 5px 0 #d62828; transform: rotate(1.5deg);"
+        style="display: inline-block; margin: 8px 0 0; padding: 6px 22px; font-family: 'Permanent Marker', cursive; font-size: 25.6px; color: #000; background-color: #f3e9d2; border: 4px solid #000; box-shadow: 5px 5px 0 #d62828; transform: rotate(1.5deg);"
       >
         Student Information
       </p>
@@ -178,7 +169,6 @@
       <p class="tagline">WELCOME TO MY WALL</p>
     </header>
 
-    <!-- ================= TABLE OF CONTENTS (bookmark links) ================= -->
     <nav class="toc" aria-label="Table of Contents">
       <h2 class="toc-title">Table of Contents</h2>
       <ul>
@@ -191,9 +181,7 @@
       </ul>
     </nav>
 
-    <!-- ================= MAIN CONTENT ================= -->
     <main>
-      <!-- ---------- General Information ---------- -->
       <section id="info">
         <h2>General Information</h2>
 
@@ -226,26 +214,31 @@
             <dd><u>San Mateo Rizal</u></dd>
 
             <dt><mark>Home Address</mark></dt>
-            <dd><u>Blk 7 lot 10 230 Pluto Street Perpetual Village 7 Phase 2 Mambog V Bacoor Cavite</u></dd>
+            <dd>
+              <u
+                >Blk 7 lot 10 230 Pluto Street Perpetual Village 7 Phase 2
+                Mambog V Bacoor Cavite</u
+              >
+            </dd>
           </dl>
         </article>
       </section>
 
-      <!-- ---------- About Me ---------- -->
       <section id="about">
         <article class="panel">
           <h2>About Me</h2>
           <p>
-            Hi, I'm Vanriam! I was born in San Mateo, Rizal, and now I live in Bacoor, Cavite.
+            Hi, I'm Vanriam! I was born in San Mateo, Rizal, and now I live in
+            Bacoor, Cavite.
           </p>
           <p>
-            Outside of class you'll find me on the court or the field, deep in a game, or watching anime.
+            Outside of class you'll find me on the court or the field, deep in a
+            game, or watching anime.
           </p>
           <p class="edit-me">[Add one more sentence about yourself here.]</p>
         </article>
       </section>
 
-      <!-- ---------- Hobbies & Interests ---------- -->
       <section id="hobbies">
         <h2>Hobbies & Interests</h2>
 
@@ -263,7 +256,8 @@
           <article class="card card-games">
             <h3>🎮 Gaming</h3>
             <p>
-              I like big open worlds and games with unique mechanics, FPS for the rush, and puzzles that make me think.
+              I like big open worlds and games with unique mechanics, FPS for
+              the rush, and puzzles that make me think.
             </p>
             <ul class="chips">
               <li>Open world</li>
@@ -284,7 +278,6 @@
         </div>
       </section>
 
-      <!-- ---------- Goals & Dreams ---------- -->
       <section id="goals">
         <article class="panel">
           <h2>Goals & Dreams</h2>
@@ -292,12 +285,16 @@
           <div class="drawers">
             <details>
               <summary>My short-term goal</summary>
-              <p class="edit-me">[Write a goal you want to reach this school year.]</p>
+              <p class="edit-me">
+                [Write a goal you want to reach this school year.]
+              </p>
             </details>
 
             <details>
               <summary>My dream</summary>
-              <p class="edit-me">[Write the job or life you dream of having.]</p>
+              <p class="edit-me">
+                [Write the job or life you dream of having.]
+              </p>
             </details>
 
             <details>
@@ -308,14 +305,15 @@
         </article>
       </section>
 
-      <!-- ---------- Favorites ---------- -->
       <section id="favorites">
         <article class="panel">
           <h2>Favorites</h2>
 
           <div class="table-wrap">
             <table class="fav-table">
-              <caption>My favorite things</caption>
+              <caption>
+                My favorite things
+              </caption>
               <tbody>
                 <tr>
                   <th scope="row">Sports</th>
@@ -351,38 +349,59 @@
         </article>
       </section>
 
-      <!-- ---------- Tip sticker ---------- -->
       <aside class="sticker">
         Press and hold anywhere on the wall. The spray can starts spraying!
       </aside>
 
-      <!-- ---------- Links ---------- -->
       <section id="links">
         <h2>Quick Links</h2>
 
         <article class="link-group">
           <h3>Go to</h3>
           <div class="btn-row">
-            <a class="btn" href="https://www.google.com" target="_blank" rel="noopener">To Google</a>
-            <a class="btn" href="http://vcmc.eulap.co:8080/cbs/a/login" target="_blank" rel="noopener">To LMS</a>
+            <a
+              class="btn"
+              href="https://www.google.com"
+              target="_blank"
+              rel="noopener"
+              >To Google</a
+            >
+            <a
+              class="btn"
+              href="http://vcmc.eulap.co:8080/cbs/a/login"
+              target="_blank"
+              rel="noopener"
+              >To LMS</a
+            >
           </div>
         </article>
 
         <article class="link-group">
           <h3>My activities</h3>
           <div class="btn-row">
-            <a class="btn" href="page2.html" target="_blank" rel="noopener">Q1; Act. 2</a>
-            <a class="btn" href="page3.html" target="_blank" rel="noopener">Q1; P.T</a>
-            <a class="btn" href="page4.html" target="_blank" rel="noopener">Q2; Act. 1</a>
-            <a class="btn" href="page5.html" target="_blank" rel="noopener">Q2; Act. 2</a>
-            <a class="btn" href="page6.html" target="_blank" rel="noopener">Q2; Act. 3</a>
-            <a class="btn" href="page7.html" target="_blank" rel="noopener">Q2; Act. 4</a>
+            <a class="btn" href="page2.html" target="_blank" rel="noopener"
+              >Q1; Act. 2</a
+            >
+            <a class="btn" href="page3.html" target="_blank" rel="noopener"
+              >Q1; P.T</a
+            >
+            <a class="btn" href="page4.html" target="_blank" rel="noopener"
+              >Q2; Act. 1</a
+            >
+            <a class="btn" href="page5.html" target="_blank" rel="noopener"
+              >Q2; Act. 2</a
+            >
+            <a class="btn" href="page6.html" target="_blank" rel="noopener"
+              >Q2; Act. 3</a
+            >
+            <a class="btn" href="page7.html" target="_blank" rel="noopener"
+              >Q2; Act. 4</a
+            >
           </div>
         </article>
       </section>
     </main>
 
-    <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
       <div class="tape"></div>
       <p class="footer-tag">Keep it sprayed.</p>
@@ -395,7 +414,9 @@
       </ul>
 
       <small>&copy; 2026 Vanriam M. Cansilao | Student ID: CAN3003-24</small>
-      <small style="margin-top: 6px;">Built with HTML and CSS only. No JavaScript.</small>
+      <small style="margin-top: 6px;"
+        >Built with HTML and CSS only. No JavaScript.</small
+      >
     </footer>
 
     <a class="to-top" href="#top" aria-label="Back to top">▲ TOP</a>
