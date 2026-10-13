@@ -42,6 +42,8 @@
       }
 
       .ticker {
+        position: sticky;
+        top: 0;
         overflow: hidden;
         padding: 6px 0;
         white-space: nowrap;
@@ -53,15 +55,16 @@
         border-bottom: 4px solid var(--yellow);
       }
 
-      .ticker span {
-        display: inline-block;
-        animation: ticker 12s linear infinite;
+      .ticker-track {
+        display: flex;
+        width: max-content;
+        animation: ticker 5s linear infinite;
       }
-
-      .ticker:hover span {
+      
+      .ticker:hover .ticker-track {
         animation-play-state: paused;
       }
-
+      
       @keyframes ticker {
         to { transform: translateX(-50%); }
       }
@@ -151,13 +154,6 @@
 
   <body>
     <header class="banner" id="top">
-      <div class="ticker" aria-hidden="true">
-        <span>
-          STUDENT // BALLER // GAMER // ANIME FAN // KEEP IT SPRAYED //&nbsp;
-          STUDENT // BALLER // GAMER // ANIME FAN // KEEP IT SPRAYED //&nbsp;
-        </span>
-      </div>
-
       <h1 id="site-title">Vanriam's Wall</h1>
 
       <p
@@ -168,6 +164,13 @@
 
       <p class="tagline">WELCOME TO MY WALL</p>
     </header>
+
+    <div class="ticker">
+        <div class="ticker-track">
+          <span>STUDENT // BALLER // GAMER // ANIME FAN // KEEP IT SPRAYED //</span>
+          <span>STUDENT // BALLER // GAMER // ANIME FAN // KEEP IT SPRAYED //</span>
+          </div>
+      </div>
 
     <nav class="toc" aria-label="Table of Contents">
       <h2 class="toc-title">Table of Contents</h2>
