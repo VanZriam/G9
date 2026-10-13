@@ -159,7 +159,7 @@ main {
 /* ---------- Table of contents (sticky bookmark menu) ---------- */
 .toc {
   position: sticky;
-  top: 0;
+  top: 39px;
   z-index: 100;
   margin: 46px 0 0;
   padding: 10px 14px 14px;
