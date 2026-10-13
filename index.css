@@ -1,10 +1,3 @@
-/* =========================================================
-   EXTERNAL CSS  (style.css)  - 1 of 3 types of CSS
-   Theme: Street graffiti on a concrete wall
-   Palette: red / orange / yellow fire on gray concrete
-   ========================================================= */
-
-/* ---------- Variables (custom properties) ---------- */
 :root {
   --red: #d62828;
   --orange: #f77f00;
@@ -13,46 +6,34 @@
   --ink: #14110f;
 }
 
-/* ---------- Universal selector + BOX MODEL reset ----------
-   border-box means width includes padding + border, so
-   boxes stay the size we set. */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* ---------- Smooth scrolling for the bookmark links ---------- */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px; /* keeps headings from hiding under the sticky menu */
+  scroll-padding-top: 110px;
 }
 
-/* ---------- Concrete wall (CSS BACKGROUND) ----------
-   Layers, top to bottom:
-   1) fire-colored spray glow  2) dark vignette (shaded edges)
-   3) fine grain noise  4) big stains/blotches
-   5) concrete panel seams  6) base gray gradient            */
 body {
   margin: 0;
-  font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.45;
   text-align: center;
   color: var(--cream);
   background-color: #6a6761;
-  /* Spray-can cursor (SVG). Hotspot = the nozzle tip. */
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect x='14' y='15' width='17' height='22' rx='3' fill='%23d62828' stroke='%23000' stroke-width='2'/%3E%3Crect x='16' y='9' width='13' height='6' fill='%23ddd' stroke='%23000' stroke-width='2'/%3E%3Crect x='8' y='10' width='8' height='3' fill='%23000'/%3E%3Crect x='14' y='22' width='17' height='6' fill='%23ffb703'/%3E%3C/svg%3E") 8 11, crosshair;
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect x='14' y='15' width='17' height='22' rx='3' fill='%23d62828' stroke='%23000' stroke-width='2'/%3E%3Crect x='16' y='9' width='13' height='6' fill='%23ddd' stroke='%23000' stroke-width='2'/%3E%3Crect x='8' y='10' width='8' height='3' fill='%23000'/%3E%3Crect x='14' y='22' width='17' height='6' fill='%23ffb703'/%3E%3C/svg%3E")
+      8 11,
+    crosshair;
 }
 
-/* ---------- THE WALL (performance fix) ----------
-   The wall used to be painted on body with background-attachment: fixed,
-   which makes the browser repaint every layer while scrolling (lag).
-   Now it is a fixed layer behind the page that the browser keeps on the
-   graphics card, so scrolling stays smooth. */
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   top: 0;
   right: 0;
@@ -63,68 +44,91 @@ body::before {
   will-change: transform;
   transform: translateZ(0);
   background-image:
-    radial-gradient(circle at 12% 18%, rgba(247, 127, 0, 0.28), transparent 28%),
-    radial-gradient(circle at 88% 62%, rgba(214, 40, 40, 0.26), transparent 30%),
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(247, 127, 0, 0.28),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 62%,
+      rgba(214, 40, 40, 0.26),
+      transparent 30%
+    ),
     radial-gradient(circle at 20% 92%, rgba(255, 183, 3, 0.2), transparent 24%),
-    radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.7) 100%),
-    /* HD PHOTO: put your picture in this folder and name it wall.jpg.
-       The dark layer above it keeps the text easy to read.
-       Change 0.55 to a smaller number for a brighter wall. */
+    radial-gradient(
+      ellipse at center,
+      transparent 45%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url("https://static.vecteezy.com/system/resources/previews/045/359/907/non_2x/graffiti-background-with-throw-up-and-tagging-hand-drawn-style-street-art-graffiti-urban-theme-in-format-vector.jpg"),
+    url('https://static.vecteezy.com/system/resources/previews/045/359/907/non_2x/graffiti-background-with-throw-up-and-tagging-hand-drawn-style-street-art-graffiti-urban-theme-in-format-vector.jpg'),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.38'/%3E%3C/svg%3E"),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='0.55'/%3E%3C/svg%3E"),
-    repeating-linear-gradient(0deg, transparent 0 276px, rgba(0, 0, 0, 0.4) 276px 280px),
-    repeating-linear-gradient(90deg, transparent 0 456px, rgba(0, 0, 0, 0.3) 456px 459px),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 276px,
+      rgba(0, 0, 0, 0.4) 276px 280px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 456px,
+      rgba(0, 0, 0, 0.3) 456px 459px
+    ),
     linear-gradient(#7d7a74, #55524d);
-  background-size: auto, auto, auto, auto, auto, cover, auto, auto, auto, auto, auto;
+  background-size:
+    auto, auto, auto, auto, auto, cover, auto, auto, auto, auto, auto;
   background-position: center;
 }
 
-
-/* Holding the mouse down = the can is spraying (paint dots appear) */
 body:active,
 a:active,
 summary:active {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='4' cy='11' r='2.4' fill='%23f77f00'/%3E%3Ccircle cx='1.5' cy='7.5' r='1.3' fill='%23d62828'/%3E%3Ccircle cx='2' cy='14.5' r='1.3' fill='%23ffb703'/%3E%3Ccircle cx='5.5' cy='5.5' r='1' fill='%23ffb703'/%3E%3Ccircle cx='6' cy='16' r='1' fill='%23d62828'/%3E%3Crect x='14' y='15' width='17' height='22' rx='3' fill='%23d62828' stroke='%23000' stroke-width='2'/%3E%3Crect x='16' y='9' width='13' height='6' fill='%23ddd' stroke='%23000' stroke-width='2'/%3E%3Crect x='8' y='10' width='8' height='3' fill='%23000'/%3E%3Crect x='14' y='22' width='17' height='6' fill='%23ffb703'/%3E%3C/svg%3E") 8 11, crosshair;
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='4' cy='11' r='2.4' fill='%23f77f00'/%3E%3Ccircle cx='1.5' cy='7.5' r='1.3' fill='%23d62828'/%3E%3Ccircle cx='2' cy='14.5' r='1.3' fill='%23ffb703'/%3E%3Ccircle cx='5.5' cy='5.5' r='1' fill='%23ffb703'/%3E%3Ccircle cx='6' cy='16' r='1' fill='%23d62828'/%3E%3Crect x='14' y='15' width='17' height='22' rx='3' fill='%23d62828' stroke='%23000' stroke-width='2'/%3E%3Crect x='16' y='9' width='13' height='6' fill='%23ddd' stroke='%23000' stroke-width='2'/%3E%3Crect x='8' y='10' width='8' height='3' fill='%23000'/%3E%3Crect x='14' y='22' width='17' height='6' fill='%23ffb703'/%3E%3C/svg%3E")
+      8 11,
+    crosshair;
 }
 
-/* Over links and buttons the can turns yellow (hover feedback) */
 a,
 summary {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect x='14' y='15' width='17' height='22' rx='3' fill='%23ffb703' stroke='%23000' stroke-width='2'/%3E%3Crect x='16' y='9' width='13' height='6' fill='%23f77f00' stroke='%23000' stroke-width='2'/%3E%3Crect x='8' y='10' width='8' height='3' fill='%23000'/%3E%3Crect x='14' y='22' width='17' height='6' fill='%23d62828'/%3E%3C/svg%3E") 8 11, pointer;
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect x='14' y='15' width='17' height='22' rx='3' fill='%23ffb703' stroke='%23000' stroke-width='2'/%3Crect x='16' y='9' width='13' height='6' fill='%23f77f00' stroke='%23000' stroke-width='2'/%3Crect x='8' y='10' width='8' height='3' fill='%23000'/%3Crect x='14' y='22' width='17' height='6' fill='%23d62828'/%3E%3C/svg%3E")
+      8 11,
+    pointer;
 }
 
-/* ---------- Element selectors: text ---------- */
 h2 {
-  font-family: "Rubik Spray Paint", Impact, sans-serif;
+  font-family: 'Rubik Spray Paint', Impact, sans-serif;
   font-weight: 400;
   font-size: clamp(2.2rem, 6vw, 3.6rem);
   line-height: 1.05;
   letter-spacing: 2px;
   color: var(--yellow);
-  text-shadow: 3px 3px 0 var(--red), 6px 6px 0 #000;
+  text-shadow:
+    3px 3px 0 var(--red),
+    6px 6px 0 #000;
   position: relative;
   display: inline-block;
   margin: 0 0 1.1em;
 }
 
-/* Paint drips under every h2 (two layers of different spacing) */
 h2::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 4%;
   right: 4%;
   bottom: -20px;
   height: 22px;
   background:
-    linear-gradient(90deg, var(--red) 5px, transparent 5px) 0 0 / 47px 22px repeat-x,
-    linear-gradient(90deg, var(--orange) 4px, transparent 4px) 19px 0 / 61px 13px repeat-x;
+    linear-gradient(90deg, var(--red) 5px, transparent 5px) 0 0 / 47px 22px
+      repeat-x,
+    linear-gradient(90deg, var(--orange) 4px, transparent 4px) 19px 0 / 61px
+      13px repeat-x;
   pointer-events: none;
 }
 
 h3 {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-weight: 400;
   font-size: 1.7rem;
   color: var(--orange);
@@ -140,14 +144,12 @@ a {
   color: var(--yellow);
 }
 
-/* Keyboard users still get a clear outline */
 a:focus-visible,
 summary:focus-visible {
   outline: 4px dashed #fff;
   outline-offset: 4px;
 }
 
-/* ---------- Layout: main wall area (BOX MODEL: max-width, margin, padding) ---------- */
 main {
   max-width: 1040px;
   margin: 0 auto;
@@ -156,7 +158,6 @@ main {
   z-index: 1;
 }
 
-/* ---------- Table of contents (sticky bookmark menu) ---------- */
 .toc {
   position: sticky;
   top: 39px;
@@ -170,7 +171,7 @@ main {
 }
 
 .toc-title {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.05rem;
   letter-spacing: 1px;
   color: var(--orange);
@@ -179,7 +180,7 @@ main {
 }
 
 .toc-title::after {
-  content: none; /* no drips on this small heading */
+  content: none;
 }
 
 .toc ul {
@@ -192,17 +193,19 @@ main {
   gap: 8px 10px;
 }
 
-/* Descendant + element selector */
 .toc li a {
   display: block;
   padding: 6px 14px;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.05rem;
   text-decoration: none;
   color: var(--yellow);
   border: 3px solid var(--yellow);
   border-radius: 4px 14px 5px 12px;
-  transition: transform 0.2s, background-color 0.2s, color 0.2s;
+  transition:
+    transform 0.2s,
+    background-color 0.2s,
+    color 0.2s;
 }
 
 .toc li a:hover,
@@ -219,34 +222,48 @@ main {
   transform: scale(0.94);
 }
 
-/* ---------- Sections ---------- */
 main > section {
   margin: 70px 0;
   padding-top: 10px;
 }
 
-/* Jumping to a section with a bookmark link makes its title flash */
 section:target h2 {
   animation: flash 1.1s ease-out;
 }
 
 @keyframes flash {
-  0%   { color: #fff; text-shadow: 0 0 30px var(--orange), 3px 3px 0 var(--red), 6px 6px 0 #000; transform: scale(1.12); }
-  100% { color: var(--yellow); transform: scale(1); }
+  0% {
+    color: #fff;
+    text-shadow:
+      0 0 30px var(--orange),
+      3px 3px 0 var(--red),
+      6px 6px 0 #000;
+    transform: scale(1.12);
+  }
+
+  100% {
+    color: var(--yellow);
+    transform: scale(1);
+  }
 }
 
-/* ---------- ID card (General Information) ---------- */
 .id-card {
   position: relative;
   max-width: 780px;
   margin: 0 auto;
   padding: 36px 28px 30px;
   background-color: var(--cream);
-  background-image: radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.08), transparent 50%);
+  background-image: radial-gradient(
+    circle at 80% 20%,
+    rgba(0, 0, 0, 0.08),
+    transparent 50%
+  );
   color: #1b1b1b;
   border: 6px solid #000;
   border-radius: 10px;
-  box-shadow: 10px 10px 0 var(--red), 0 0 40px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    10px 10px 0 var(--red),
+    0 0 40px rgba(0, 0, 0, 0.6);
   transform: rotate(-1deg);
   transition: transform 0.3s;
 }
@@ -255,9 +272,8 @@ section:target h2 {
   transform: rotate(0deg) scale(1.01);
 }
 
-/* Piece of tape holding the card to the wall */
 .id-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -20px;
   left: 50%;
@@ -288,7 +304,7 @@ section:target h2 {
 }
 
 .name {
-  font-family: "Rubik Wet Paint", "Permanent Marker", cursive;
+  font-family: 'Rubik Wet Paint', 'Permanent Marker', cursive;
   font-size: clamp(1.9rem, 6vw, 3.2rem);
   line-height: 1.1;
   margin: 8px 0 4px;
@@ -297,12 +313,11 @@ section:target h2 {
 }
 
 .student-id {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: clamp(1.3rem, 4vw, 2rem);
   margin: 0 0 22px;
 }
 
-/* ID details laid out as a 2-column grid */
 .details {
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -325,7 +340,7 @@ section:target h2 {
 mark {
   display: inline-block;
   padding: 0 8px;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.05rem;
   background-color: var(--yellow);
   color: #000;
@@ -334,21 +349,23 @@ mark {
   transform: rotate(-1.5deg);
 }
 
-/* ---------- Dark wall panels (About / Hobbies / Goals / Favorites) ---------- */
 .panel {
   padding: 40px 28px 34px;
   background-color: rgba(18, 14, 12, 0.8);
   border: 5px solid var(--yellow);
   border-radius: 6px 16px 8px 18px;
-  box-shadow: 9px 9px 0 var(--red), 0 0 40px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    9px 9px 0 var(--red),
+    0 0 40px rgba(0, 0, 0, 0.6);
 }
 
-/* :nth-of-type = every second section gets a different frame */
 main > section:nth-of-type(even) .panel {
   border-color: var(--orange);
   border-style: double;
   border-width: 9px;
-  box-shadow: -9px 9px 0 var(--red), 0 0 40px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    -9px 9px 0 var(--red),
+    0 0 40px rgba(0, 0, 0, 0.6);
 }
 
 .panel p {
@@ -357,7 +374,6 @@ main > section:nth-of-type(even) .panel {
   margin-right: auto;
 }
 
-/* Sections that hold cards sit directly on the wall */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -365,13 +381,14 @@ main > section:nth-of-type(even) .panel {
   align-items: stretch;
 }
 
-/* ---------- Hobby cards ---------- */
 .card {
   padding: 24px 20px;
   background-color: rgba(18, 14, 12, 0.82);
   border-radius: 8px;
   box-shadow: 6px 6px 0 #000;
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
 }
 
 .card:hover {
@@ -384,10 +401,17 @@ main > section:nth-of-type(even) .panel {
   box-shadow: 2px 2px 0 var(--red);
 }
 
-/* Different border styles per card (CSS BORDER) */
-.card-sports { border: 5px solid var(--yellow); }
-.card-games  { border: 7px double var(--orange); }
-.card-anime  { border: 5px dashed var(--red); }
+.card-sports {
+  border: 5px solid var(--yellow);
+}
+
+.card-games {
+  border: 7px double var(--orange);
+}
+
+.card-anime {
+  border: 5px dashed var(--red);
+}
 
 .chips {
   list-style: none;
@@ -407,7 +431,9 @@ main > section:nth-of-type(even) .panel {
   background-color: var(--yellow);
   border: 2px solid #000;
   border-radius: 20px 6px 20px 6px;
-  transition: transform 0.2s, background-color 0.2s;
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
 }
 
 .chips li:hover {
@@ -415,7 +441,6 @@ main > section:nth-of-type(even) .panel {
   transform: scale(1.12) rotate(-3deg);
 }
 
-/* ---------- Goals: click-to-open drawers (<details>) ---------- */
 .drawers {
   max-width: 700px;
   margin: 0 auto;
@@ -427,7 +452,9 @@ details {
   background-color: rgba(0, 0, 0, 0.45);
   border: 3px solid var(--yellow);
   border-radius: 4px 14px 4px 14px;
-  transition: border-color 0.2s, background-color 0.2s;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
 }
 
 details:hover {
@@ -436,7 +463,7 @@ details:hover {
 
 summary {
   padding: 14px 18px;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.5rem;
   color: var(--yellow);
   list-style: none;
@@ -447,7 +474,7 @@ summary::-webkit-details-marker {
 }
 
 summary::before {
-  content: "+";
+  content: '+';
   display: inline-block;
   width: 1.3em;
   margin-right: 6px;
@@ -458,14 +485,13 @@ summary::before {
   transition: transform 0.3s;
 }
 
-/* Attribute selector: styles only the drawer that is open */
 details[open] {
   background-color: rgba(214, 40, 40, 0.28);
   border-color: var(--red);
 }
 
 details[open] summary::before {
-  content: "\2212";
+  content: '\2212';
   transform: rotate(180deg);
 }
 
@@ -474,13 +500,11 @@ details p {
   padding: 0 20px 18px;
 }
 
-/* Spots where you put your own text */
 .edit-me {
   font-style: italic;
   color: #ffd98a;
 }
 
-/* ---------- Favorites table ---------- */
 .table-wrap {
   overflow-x: auto;
 }
@@ -496,7 +520,7 @@ details p {
 
 .fav-table caption {
   padding-bottom: 12px;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.4rem;
   color: var(--orange);
 }
@@ -510,7 +534,7 @@ details p {
 
 .fav-table th {
   width: 34%;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-weight: 400;
   color: #000;
   background-color: var(--yellow);
@@ -524,12 +548,11 @@ details p {
   background-color: rgba(247, 127, 0, 0.35);
 }
 
-/* ---------- Sticker tip (aside) ---------- */
 .sticker {
   max-width: 420px;
   margin: 0 auto;
   padding: 16px 22px;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.25rem;
   color: #000;
   background-color: var(--yellow);
@@ -539,7 +562,6 @@ details p {
   transform: rotate(2deg);
 }
 
-/* ---------- Link buttons (spray tags) ---------- */
 .link-group {
   margin: 0 0 40px;
 }
@@ -560,7 +582,7 @@ details p {
   overflow: hidden;
   isolation: isolate;
   padding: 14px 30px;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.45rem;
   text-decoration: none;
   color: #000;
@@ -569,17 +591,28 @@ details p {
   border-radius: 6px 18px 8px 16px;
   box-shadow: 6px 6px 0 #000;
   transform: rotate(var(--tilt));
-  transition: transform 0.25s, box-shadow 0.25s, color 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    color 0.25s;
 }
 
-/* Variety: every button is tilted and colored differently */
-.btn:nth-child(even)   { --tilt: 2.5deg; }
-.btn:nth-child(3n)     { --fill: var(--orange); --splat: #000; }
-.btn:nth-child(3n + 2) { --fill: var(--cream);  --splat: var(--red); }
+.btn:nth-child(even) {
+  --tilt: 2.5deg;
+}
 
-/* Paint splat that grows from the middle on hover */
+.btn:nth-child(3n) {
+  --fill: var(--orange);
+  --splat: #000;
+}
+
+.btn:nth-child(3n + 2) {
+  --fill: var(--cream);
+  --splat: var(--red);
+}
+
 .btn::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
   top: 50%;
@@ -594,15 +627,14 @@ details p {
 }
 
 .btn::after {
-  content: "\279C";
+  content: '\279C';
   display: inline-block;
   margin-left: 10px;
   transition: transform 0.3s;
 }
 
-/* Attribute selector: links that start with http get a different arrow */
-.btn[href^="http"]::after {
-  content: "\2197";
+.btn[href^='http']::after {
+  content: '\2197';
 }
 
 .btn:hover,
@@ -621,7 +653,6 @@ details p {
   transform: translateX(6px);
 }
 
-/* Holding the click = a big black spray blast */
 .btn:active {
   transform: translateY(3px) scale(0.95);
   box-shadow: 1px 1px 0 #000;
@@ -632,14 +663,13 @@ details p {
   transform: scale(24);
 }
 
-/* ---------- Back-to-top button ---------- */
 .to-top {
   position: fixed;
   right: 18px;
   bottom: 18px;
   z-index: 150;
   padding: 10px 14px;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.1rem;
   text-decoration: none;
   color: #000;
@@ -654,7 +684,6 @@ details p {
   transform: translateY(-5px) rotate(-6deg);
 }
 
-/* ---------- Scroll reveal: paint fades in (only in browsers that support it) ---------- */
 @supports (animation-timeline: view()) {
   .panel,
   .grid .card {
@@ -665,17 +694,26 @@ details p {
 }
 
 @keyframes paint-in {
-  from { opacity: 0; transform: translateY(40px) scale(0.97); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* ---------- Mobile ---------- */
 @media (max-width: 700px) {
-  body { font-size: 1.15rem; }
+  body {
+    font-size: 1.15rem;
+  }
 
-  html { scroll-padding-top: 70px; }
+  html {
+    scroll-padding-top: 70px;
+  }
 
-  /* menu becomes one swipeable row so it stays short */
   .toc ul {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -683,21 +721,28 @@ details p {
     padding-bottom: 6px;
   }
 
-  .toc li a { white-space: nowrap; }
+  .toc li a {
+    white-space: nowrap;
+  }
 
   .details {
     grid-template-columns: 1fr;
     gap: 2px;
   }
 
-  .details dd { margin-bottom: 12px; }
+  .details dd {
+    margin-bottom: 12px;
+  }
 
-  .panel { padding: 34px 16px 28px; }
+  .panel {
+    padding: 34px 16px 28px;
+  }
 }
 
-/* ---------- Respect people who turn off motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
 
   *,
   *::before,
